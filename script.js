@@ -126,6 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Update copyright year dynamically
+document.addEventListener('DOMContentLoaded', function() {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+
 // Add loading animation for images (excluding hero, about, client logo, navigation logo, and footer logo images)
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img:not(.hero-logo):not(.about-logo):not(.nav-logo):not(.footer-logo-img)');

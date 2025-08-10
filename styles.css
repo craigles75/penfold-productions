@@ -30,7 +30,7 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     transition: all 0.3s ease;
 }
 
@@ -44,8 +44,9 @@ body {
 }
 
 .nav-logo {
-    height: 40px;
+    height: 80px;
     width: auto;
+    opacity: 1 !important;
 }
 
 .nav-menu {
@@ -444,9 +445,10 @@ body {
 }
 
 .footer-logo-img {
-    height: 40px;
+    height: 60px;
     width: auto;
     margin-bottom: 1rem;
+    opacity: 1 !important;
 }
 
 .footer-logo p {
@@ -495,6 +497,14 @@ body {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+    }
+    
+    .nav-logo {
+        height: 65px;
+    }
+    
+    .footer-logo-img {
+        height: 50px;
     }
 
     .nav-menu {
@@ -584,6 +594,14 @@ body {
 @media (max-width: 480px) {
     .hero {
         padding: 100px 0 60px;
+    }
+    
+    .nav-logo {
+        height: 55px;
+    }
+    
+    .footer-logo-img {
+        height: 45px;
     }
 
     .hero-title {

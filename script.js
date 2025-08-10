@@ -126,9 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add loading animation for images (excluding hero, about, and client logo images)
+// Add loading animation for images (excluding hero, about, client logo, navigation logo, and footer logo images)
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img:not(.hero-logo):not(.about-logo)');
+    const images = document.querySelectorAll('img:not(.hero-logo):not(.about-logo):not(.nav-logo):not(.footer-logo-img)');
     
     images.forEach(img => {
         // Skip client logo images
@@ -153,4 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Debug: Check all images
     console.log('All images found:', document.querySelectorAll('img'));
     console.log('Client logos found:', document.querySelectorAll('.client-logo img'));
+    console.log('Navigation logos found:', document.querySelectorAll('.nav-logo'));
+    console.log('Footer logos found:', document.querySelectorAll('.footer-logo-img'));
 });

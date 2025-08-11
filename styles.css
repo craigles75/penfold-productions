@@ -340,6 +340,25 @@ body {
     font-size: 1.5rem;
 }
 
+/* Obfuscated Contact Elements */
+.obfuscated-contact {
+    cursor: pointer;
+    color: #688490;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.obfuscated-contact:hover {
+    color: #5a6f7a;
+}
+
+.obfuscated-contact.revealed {
+    color: #333;
+    text-decoration: none;
+    cursor: default;
+}
+
 .contact-form {
     background: white;
     padding: 2rem;

@@ -187,6 +187,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+    
+    // Handle obfuscated contact elements
+    const obfuscatedContacts = document.querySelectorAll('.obfuscated-contact');
+    obfuscatedContacts.forEach(contact => {
+        contact.addEventListener('click', function() {
+            if (!this.classList.contains('revealed')) {
+                // Reveal the contact information
+                this.textContent = this.dataset.contact;
+                this.classList.add('revealed');
+                
+                // Track in Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'contact_revealed', {
+                        'event_category': 'Contact Information',
+                        'event_label': this.dataset.type,
+                        'value': 1
+                    });
+                }
+            }
+        });
+    });
 });
 
 // Add loading animation for images (excluding hero, about, client logo, navigation logo, and footer logo images)

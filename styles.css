@@ -619,6 +619,18 @@ body {
     }
 }
 
+/* Chatbot Header */
+.chatbot-header {
+    margin-bottom: 2rem;
+}
+
+.chatbot-header h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
 /* Smooth scrolling for older browsers */
 @media (prefers-reduced-motion: no-preference) {
     html {

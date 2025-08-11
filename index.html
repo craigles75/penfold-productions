@@ -210,22 +210,20 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="company" name="company" placeholder="Company Name">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tell us about your project" rows="5"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                
+
+                
+                <!-- Chat with (virtual) Craig Header -->
+                <div class="chatbot-header">
+                    <h3>Chat with (virtual) Craig</h3>
+                                    <!-- Hugging Face Space Integration -->
+                <script
+                type="module"
+                src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"
+            ></script>
+            
+            <gradio-app src="https://craigles75-agents.hf.space"></gradio-app>
+                </div>
             </div>
         </div>
     </section>

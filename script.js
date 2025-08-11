@@ -46,6 +46,52 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
+        // Track form field interactions
+        const formFields = contactForm.querySelectorAll('input, textarea');
+        formFields.forEach(field => {
+            field.addEventListener('focus', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_field_focus', {
+                        'event_category': 'Contact Form',
+                        'event_label': field.name || field.id,
+                        'value': 1
+                    });
+                }
+            });
+            
+            // Track when users start typing (first interaction)
+            field.addEventListener('input', function() {
+                if (!this.dataset.tracked) {
+                    this.dataset.tracked = 'true';
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_started', {
+                            'event_category': 'Contact Form',
+                            'event_label': 'Form Started',
+                            'value': 1
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Track form abandonment
+        let formStarted = false;
+        formFields.forEach(field => {
+            field.addEventListener('input', function() {
+                formStarted = true;
+            });
+        });
+        
+        window.addEventListener('beforeunload', function() {
+            if (formStarted && typeof gtag !== 'undefined') {
+                gtag('event', 'form_abandoned', {
+                    'event_category': 'Contact Form',
+                    'event_label': 'Form Abandoned',
+                    'value': 1
+                });
+            }
+        });
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -75,6 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
+            
+            // Track form submission with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'event_category': 'Contact Form',
+                    'event_label': 'Contact Form Submission',
+                    'value': 1
+                });
+            }
             
             // Simulate API call delay
             setTimeout(() => {
